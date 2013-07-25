@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Web", "TaskManager.Web\TaskManager.Web.csproj", "{B28C13CA-6782-4415-92DA-4E1BD358BA31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Lib", "TaskManager.Lib\TaskManager.Lib.csproj", "{D5F82388-BB3F-4F75-9A1D-B1514FCB21D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Lib.Test", "TaskManager.Lib.Test\TaskManager.Lib.Test.csproj", "{BF60BEE4-3D18-46AA-B463-4568778ECD39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Web.Test", "TaskManager.Web.Test\TaskManager.Web.Test.csproj", "{28D438B6-4A04-4FFF-9166-2E2FF035D2AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +19,18 @@ Global
 		{B28C13CA-6782-4415-92DA-4E1BD358BA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B28C13CA-6782-4415-92DA-4E1BD358BA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B28C13CA-6782-4415-92DA-4E1BD358BA31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F82388-BB3F-4F75-9A1D-B1514FCB21D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F82388-BB3F-4F75-9A1D-B1514FCB21D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F82388-BB3F-4F75-9A1D-B1514FCB21D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F82388-BB3F-4F75-9A1D-B1514FCB21D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF60BEE4-3D18-46AA-B463-4568778ECD39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF60BEE4-3D18-46AA-B463-4568778ECD39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF60BEE4-3D18-46AA-B463-4568778ECD39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF60BEE4-3D18-46AA-B463-4568778ECD39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28D438B6-4A04-4FFF-9166-2E2FF035D2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D438B6-4A04-4FFF-9166-2E2FF035D2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D438B6-4A04-4FFF-9166-2E2FF035D2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D438B6-4A04-4FFF-9166-2E2FF035D2AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

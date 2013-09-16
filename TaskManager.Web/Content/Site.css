@@ -125,28 +125,6 @@ header {
     clear: both;
 }
 
-#localLoginPanel {
-    border-right: solid 2px #c8c8c8;
-    float: left;
-    width: 45%;
-    text-align: left;
-}
-
-#socialLoginPanel {
-    margin-left: 40px;
-    float: left;
-    width: 45%;
-    text-align: left;
-}
-
-    #socialLoginPanel h2 {
-        margin-bottom:  5px;
-    }
-
-#socialLoginList button {
-    margin-bottom: 12px;
-}
-
 #externalLogins {
     text-align: left;
     padding-left: 25px;
@@ -202,7 +180,7 @@ ol.round {
 .validation-summary-errors {
     color: red;
     list-style: none;
-    width: 220px;
+    /*width: 220px;*/
     font-size: .8em;
 }
 

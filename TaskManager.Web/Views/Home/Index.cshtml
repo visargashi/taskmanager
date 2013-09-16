@@ -1,73 +1,72 @@
 ﻿@model TaskManager.Web.Models.LoginModel
 @{
-    ViewBag.Title = "My Todo List";
+    ViewBag.Title = "List Manager";
 }
 @functions{
     public string GetAntiForgeryToken()
     {
         string cookieToken, formToken;
         AntiForgery.GetTokens(null, out cookieToken, out formToken);
-        return cookieToken + ":" + formToken;                
+        return cookieToken + ":" + formToken;
     }
 }
 
 <header>
-    <h1>@ViewBag.Title</h1>
+    <div class="page-header">
+        <h1>@ViewBag.Title</h1>
+    </div>
 </header>
 
 <div id="main-content">
-@if (@User.Identity.IsAuthenticated)
-{
-    <p class="error" data-bind="text: error"></p>
-    <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
-    <button data-bind="click: addTodoList" class="add-todo-btn">Add Todo list</button>
+    @if (@User.Identity.IsAuthenticated)
+    {
+        <p class="error" data-bind="text: error"></p>
+        <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
+        <button data-bind="click: addTodoList" class="add-todo-btn btn btn-large btn-primary">Create New List</button>
 
-    <section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
-        <article class="todoList">
-            <header>
-                <form data-bind="validate: true">
-                    <input class="required" data-bind="value: title, selected: isEditingListTitle, blurOnEnter: true" />
+        <section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
+            <article class="alert">
+                
+                <a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>
+
+                <header>
+                    <form data-bind="validate: true">
+                        <input class="required" data-bind="value: title, selected: isEditingListTitle, blurOnEnter: true" />
+                    </form>
+                </header>
+
+                <ul data-bind="foreach: todos">
+                    <li>
+                        <input type="checkbox" data-bind="checked: isDone" />
+                        <input class="todoItemInput" type="text" data-bind="value: title, disable: isDone, blurOnEnter: true" />
+                        <a href="#" data-bind="click: $parent.deleteTodo">X</a>
+                        <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
+                    </li>
+                </ul>
+
+                <form data-bind="submit: addTodo">
+                    <input class="addTodo" type="text" data-bind="value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, event: { blur: addTodo }" />
                 </form>
-            </header>
 
-            <a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>
-
-            <ul data-bind="foreach: todos">
-                <li>
-                    <input type="checkbox" data-bind="checked: isDone" />
-                    <input class="todoItemInput" type="text" data-bind="value: title, disable: isDone, blurOnEnter: true" />
-                    <a href="#" data-bind="click: $parent.deleteTodo">X</a>
-                    <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
-                </li>
-            </ul>
-
-            <form data-bind="submit: addTodo">
-                <input class="addTodo" type="text" data-bind="value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, event: { blur: addTodo }" />
-            </form>
-
-            <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
-        </article>
-    </section>
-}
-else
-{
-    <div class="todoList" id="loginPanel">
-        <section id="localLoginPanel">
-            <h2>Log in</h2>
-            @Html.Partial("_Login")
+                <p class="error" data-bind="visible: errorMessage, text: errorMessage"></p>
+            </article>
         </section>
-        <section id="socialLoginPanel">
-            <h2>Log in using another service</h2>
-            @Html.Action("ExternalLoginsList", "Account", new { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-        <p>First time here? <a id="showRegister">Sign up</a></p>
-    </div>
-    <div class="todoList" id="registerPanel">
-        <h2>Sign up</h2>
-        @Html.Partial("_Register")
-        <p>Already signed up? <a id="showLogin">Log in</a></p>
-    </div>
-}
+    }
+    else
+    {
+        <div class="hero-unit" id="loginPanel">
+            <section>
+                <h2>Sign in</h2>
+                @Html.Partial("_Login")
+            </section>
+            <p>First time here? <a id="showRegister">Sign up</a></p>
+        </div>
+        <div class="hero-unit" id="registerPanel">
+            <h2>Sign up</h2>
+            @Html.Partial("_Register")
+            <p>Already signed up? <a id="showLogin">Sign in</a></p>
+        </div>
+    }
 </div>
 
 @if (@User.Identity.IsAuthenticated)
